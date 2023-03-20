@@ -22,7 +22,7 @@ const navLink = [
 ]
 const Header = () => {
 
-  return <header>
+  return <header className='sticky__header'>
     <div className="container">
         <div className="nav__wrapper">
             {/* =====Logo===== */}
@@ -35,7 +35,7 @@ const Header = () => {
                 <ul className="menu">
                     {
                         navLink.map(item=>(
-                            <li className='nav__item'><a href={item.path}>{item.display}</a></li>
+                            <li className='nav__item' key={item.id}><a href={item.path}>{item.display}</a></li>
                         ))
                     }
                 </ul>
