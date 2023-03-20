@@ -1,28 +1,54 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import "../../Styles/Header.css"
 import Logo from '../../assets/img/dumble.png'
 
 const navLink = [
     {
-        path:'#',
+        path:'#home',
         display: 'Home'
     },
     {
-        path:'#',
+        path:'#schedule',
         display: 'Schedule'
     },
     {
-        path:'#',
+        path:'#classes',
         display: 'Classes'
     },
     {
-        path:'#',
+        path:'#pricing-plan',
         display: 'Pricing'
     },
 ]
 const Header = () => {
 
-  return <header className='sticky__header'>
+    const headerRef = useRef(null)
+
+    const headerFunction =()=>{
+        if(document.body.scrollTop > 80 || document.documentElement.scrollTop >80) {
+            headerRef.current.classList.add('sticky__header')
+        }else headerRef.current.classList.remove('sticky__header')
+    }
+
+    useEffect(()=>{
+        window.addEventListener("scroll", headerFunction);
+
+        return ()=> window.addEventListener("scroll", headerFunction);
+    },[]);
+
+    const handleClick =e=>{
+        e.preventDefault()
+
+        const targetAttr = e.target.getAttribute('href')
+        const location = document.querySelector(targetAttr).offsetTop
+
+        window.scrollTo({
+            left:0,
+            top:location - 80,
+        });
+    };
+
+  return <header ref={headerRef}>
     <div className="container">
         <div className="nav__wrapper">
             {/* =====Logo===== */}
@@ -35,7 +61,9 @@ const Header = () => {
                 <ul className="menu">
                     {
                         navLink.map(item=>(
-                            <li className='nav__item' key={item.id}><a href={item.path}>{item.display}</a></li>
+                            <li className='nav__item' key={item.id}>
+                                <a onClick={handleClick} href={item.path}>{item.display}</a>
+                                </li>
                         ))
                     }
                 </ul>

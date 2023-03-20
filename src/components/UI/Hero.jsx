@@ -4,16 +4,27 @@ import dumbleIcon from '../../assets/img/dumble.png'
 import '../../Styles/Hero.css'
 
 const Hero = () => {
-  return <section>
+  return <section id="home">
     <div className="container">
         <div className="hero__wrapper">
             {/* ===== hero content ===== */}
             <div className="hero__content">
-                <h2 className='section__title'>Exercise is the key to a <span className='highlight'>Healthy</span> Lifestyle</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br/>
+                <h2 className='section__title' 
+                data-aos='fade-up'
+                data-aos-duration="1500"
+                >Exercise is the key to a <span className='highlight'>Healthy</span> Lifestyle</h2>
+                <p 
+                data-aos='fade-up'
+                data-aos-delay="100"
+                data-aos-duration="1800"
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit.<br/>
                 Est enim, voluptatum omnis ipsum optio tenetur.</p>
 
-                <div className="hero__btn">
+                <div className="hero__btn"
+                data-aos='fade-up'
+                data-aos-delay="200"
+                data-aos-duration="2000"
+                >
                     <button className="register__btn">Get Started</button>
                     <button className="play__btn">
                         <span>
@@ -36,18 +47,27 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    <div className="heart__rate">
+                    <div className="heart__rate"
+                    data-aos='fade-up'
+                    data-aos-duration="1500"
+                    >
                         <h5>Heart Rate</h5>
                         <span><i class="ri-heart-pulse-fill"></i></span>
                         <h6>1789 BPM</h6>
                     </div>
 
-                    <div className="gym__location">
+                    <div className="gym__location"
+                    data-aos='fade-left'
+                    data-aos-duration="1500"
+                    >
                         <span><i class="ri-map-pin-fill"></i></span>
                         <h5>Find a new <br/>gym near you</h5>
                     </div>
 
-                    <div className="dumble__icon">
+                    <div className="dumble__icon"
+                    data-aos='fade-right'
+                    data-aos-duration="1500"
+                    >
                         <img src={dumbleIcon} alt="dumble" />
                     </div>
                 </div>
